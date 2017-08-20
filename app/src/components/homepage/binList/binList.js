@@ -26,12 +26,13 @@ export default class BinList extends Component {
         const bins = this.state.bins.map((bin, i) => (
         
             <div key={i} className='shelfListContainer'>
-            { !bin ? <Link to={ `addToInventory`} className='addToInventoryButton' >
-                <h1>+ Add Inventory</h1>
-            </Link>
+            { !bin ? 
+                <Link to={ `addToInventory`} className='addToInventoryButton' >
+                    <h1>+ Add Inventory</h1>
+                </Link>
                 :
-                <Link to={ `inventory/${bin}`} className='binList'>
-                    <h1>Bin 1</h1>
+                <Link to={ `inventory/${ bin.bin }`} className='binList'>
+                    <h1>Bin { bin.bin } </h1>
                 </Link>}
             </div>
           ))
