@@ -4,24 +4,45 @@
     background: #ab2a19;
     color: white;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
+    padding-top: 15px;
+}
+
+.homeNav div {
+    width: 500px;
+    height: 50px;
+    display: flex;
 }
 
 .homeNav h1 {
+    padding-top: 10px;
     font-size: 30px;
-    font-weight: bold;
-    margin-left: 13px;
+    margin-left: 10px;
     font-weight: 700;
 }
 
 .homeNav img {
     width: 50px;
-    margin-left: 25%;
+}
+
+.shelfListContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 .shelfList {
     background-color: #d34735;
     width: 500px;
     height: 60px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 90px;
 }
