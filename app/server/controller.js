@@ -1,5 +1,7 @@
 var shelves = [{"bin": 1, "shelf": 'A'}, {"bin": 2, "shelf": 'A'}, {"bin": 3, "shelf": 'A'}, null, null]
 
+var bin = [{'bin': 1, 'shelf': 'A', 'item': 'sneakers', 'price': '23.34'}]
+
 module.exports = {
     getShelves: (req, res) => {
         // console.log(req.params.id)
@@ -11,7 +13,7 @@ module.exports = {
     },
 
     getBin: (req, res) => {
-        res.send('getting')
+        res.send(bin)
     },
 
     editBin: (req, res) => {

@@ -27,11 +27,11 @@ export default class BinList extends Component {
         
             <div key={i} className='shelfListContainer'>
             { !bin ? 
-                <Link to={ `addToInventory`} className='addToInventoryButton' >
+                <Link to={ `/addToInventory`} className='addToInventoryButton'>
                     <h1>+ Add Inventory</h1>
                 </Link>
                 :
-                <Link to={ `inventory/${ bin.bin }`} className='binList'>
+                <Link to={ `/inventory/${ bin.bin }`} className='binList'>
                     <h1>Bin { bin.bin } </h1>
                 </Link>}
             </div>

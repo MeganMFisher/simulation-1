@@ -1,0 +1,36 @@
+
+.inventoryListNav {
+    height: 100px;
+    background: #ab2a19;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.inventoryListNav img {
+    width: 50px;
+}
+
+.inventoryShelfNav {
+    width: 20%;
+    height: 100px;
+    background: #d34735;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.inventoryBinNav {
+    width: 68%;
+    height: 100px;
+    background: #ed6b5a;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
