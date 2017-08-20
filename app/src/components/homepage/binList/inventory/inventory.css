@@ -77,6 +77,10 @@
     font-weight: bold;
 }
 
+.itemInformationContainer input::placeholder {
+    color: black;
+}
+
 .buttonContainer {
     display: flex;
     justify-content: space-between;

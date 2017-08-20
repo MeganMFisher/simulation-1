@@ -11,7 +11,7 @@ import AddToInventory from './components/homepage/binList/addToInventory/addToIn
 	        <Route exact path="/" component={ HomePage }/>
               <Route path="/binList/:id" component={ BinList }/>
               <Route path="/inventory/:id" component={ InventoryDetail }/>
-              <Route path="/addToInventory" component={ AddToInventory }/>
+              <Route path="/addToInventory/:id" component={ AddToInventory }/>
               
         </Switch>
   )
