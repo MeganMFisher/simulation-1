@@ -1,7 +1,7 @@
 module.exports = {
     getShelves: (req, res) => {
         // console.log(req.params.id)
-        req.app.get('db').getShelves().then((response) => {
+        req.app.get('db').get_shelves().then((response) => {
             res.send(response)
         })
     },
