@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './addToInventory.css';
 
 export default class addToInventory extends Component {
     render() {
@@ -15,6 +16,19 @@ export default class addToInventory extends Component {
                     <h1>Add to Bin { this.props.match.params.id }</h1>
                 </div>
             </nav>
+            <section className='addInventoryBox'>
+                <div className='addInventoryContainer'>
+                    <h3>Name</h3>
+                    <input />
+                    <h3>Price</h3>
+                    <input />
+                    <h3>Image</h3>
+                    <input />
+                    <div className='inventoryButton'>
+                        <button>+ Add Inventory</button>
+                    </div>
+                </div>
+            </section>
             </div>
         )
     }
