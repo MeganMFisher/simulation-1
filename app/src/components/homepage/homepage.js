@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './homepage.css';
 
 export default class Homepage extends Component {
@@ -12,18 +13,18 @@ export default class Homepage extends Component {
                     </div>
                 </nav>
                 <section className='shelfListContainer'>
-                    <div className='shelfList'>
+                    <Link to={ `binList/A`} className='shelfList'>
                         <h1>Shelf A</h1>
-                    </div>
-                    <div className='shelfList'>
+                    </Link>
+                    <Link to={ `binList/B`} className='shelfList'>
                         <h1>Shelf B</h1>
-                    </div>
-                    <div className='shelfList'>
+                    </Link>
+                    <Link to={ `binList/C`} className='shelfList'>
                         <h1>Shelf C</h1>
-                    </div>
-                    <div className='shelfList'>
+                    </Link>
+                    <Link to={ `binList/D`} className='shelfList'>
                         <h1>Shelf D</h1>
-                    </div>
+                    </Link>
                 </section>
             </div>
         )

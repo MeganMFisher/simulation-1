@@ -1,0 +1,63 @@
+.navContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.binListNav {
+    height: 100px;
+    background: #ab2a19;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.binListNav img {
+    width: 50px;
+}
+
+.binListShelf {
+    width: 80%;
+    height: 100px;
+    background: #d34735;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.binList {
+    background-color: #ed6b5a;
+    width: 500px;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 90px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.addToInventoryButton {
+    background-color: #ffb8af;
+    width: 500px;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 90px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
