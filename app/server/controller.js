@@ -27,6 +27,12 @@ module.exports = {
     },
 
     deleteBin: (req, res) => {
+        bin.map(e => {
+            if(e.bin == req.params.id) {
+                bin.splice(e, 1, null)
+            }
+        })
+        console.log(bin)
         res.send('deleting')
     },
 

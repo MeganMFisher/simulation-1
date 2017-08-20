@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getBin, editBin } from '../../../../services/inventoryService';
+import { getBin, editBin, deleteBin } from '../../../../services/inventoryService';
 import './inventory.css';
 
 export default class Inventory extends Component {
@@ -17,6 +17,7 @@ export default class Inventory extends Component {
         this.saveUpdatedItem = this.saveUpdatedItem.bind(this)
         this.saveEditedItem = this.saveEditedItem.bind(this)
         this.saveEditedPrice = this.saveEditedPrice.bind(this)
+        this.deleteBin = this.deleteBin.bind(this)
     }
 
     componentDidMount() {
@@ -56,6 +57,17 @@ export default class Inventory extends Component {
             this.setState({ 
                 toEdit: false
             })
+            getBin(id).then(res => {
+                this.setState({
+                    item: res[0]
+                })
+            })
+        })
+    }
+
+    deleteBin() {
+        deleteBin(this.props.match.params.id).then(res => {
+            console.log('Deleted!')
         })
     }
 
@@ -88,7 +100,7 @@ export default class Inventory extends Component {
                     <div className='buttonContainer'>
                         { !this.state.toEdit ?<button onClick={ this.turnOnEdit }>Edit</button>
                         : <button id='saveButton' onClick={ this.saveUpdatedItem }>Save</button> }
-                        <button>Delete</button>
+                        <button onClick={ this.deleteBin }>Delete</button>
                     </div>
                 </div>
 

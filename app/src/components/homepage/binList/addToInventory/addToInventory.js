@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import './addToInventory.css';
 
 export default class addToInventory extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            item: '',
+            price: '',
+            image: ''
+        }
+    }
     render() {
         return(
             <div>
