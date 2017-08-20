@@ -9,11 +9,11 @@ let app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-massive(config.database).then(db => {
-    app.set('db', db)
-}).catch((err) => {
-    console.log(err)
-})
+// massive(config.database).then(db => {
+//     app.set('db', db)
+// }).catch((err) => {
+//     console.log(err)
+// })
 
 
 app.get('/api/shelf/:id', controller.getShelves)

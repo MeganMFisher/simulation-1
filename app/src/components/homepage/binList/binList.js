@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getShelves } from '../../../services/inventoryService';
 import './binList.css';
 
 export default class BinList extends Component {
@@ -11,8 +12,30 @@ export default class BinList extends Component {
         }
     }
 
+    componentDidMount() {
+        var id = this.props.match.params.id;
+        getShelves(id).then(res => {
+            this.setState({
+                bins: res
+            })
+            console.log(this.state.bins)
+        })
+    }
+
     render() {
-        console.log(this.props.match.params.id)
+        const bins = this.state.bins.map((bin, i) => (
+        
+            <div key={i} className='shelfListContainer'>
+            { !bin ? <Link to={ `addToInventory`} className='addToInventoryButton' >
+                <h1>+ Add Inventory</h1>
+            </Link>
+                :
+                <Link to={ `inventory/${bin}`} className='binList'>
+                    <h1>Bin 1</h1>
+                </Link>}
+            </div>
+          ))
+
         return(
             <div>
                 <nav className='navContainer'>
@@ -23,24 +46,7 @@ export default class BinList extends Component {
                         <h1>Shelf {this.props.match.params.id}</h1>
                     </div>
                 </nav>
-                <section className='shelfListContainer'>
-                    <Link to={ `inventory/1`} className='binList'>
-                        <h1>Bin 1</h1>
-                    </Link>
-                    <Link to={ `inventory/2`} className='binList'>
-                        <h1>Bin 2</h1>
-                    </Link>
-                    <Link to={ `inventory/3`} className='binList'>
-                        <h1>Bin 3</h1>
-                    </Link>
-                    <Link to={ `inventory/4`} className='binList'>
-                        <h1>Bin 4</h1>
-                    </Link>
-                    <Link to={ `addToInventory`} className='addToInventoryButton' >
-                        <h1>+ Add Inventory</h1>
-                    </Link>
-                </section>
-            
+                { bins }
             </div>
         )
     }
