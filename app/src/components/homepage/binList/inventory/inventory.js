@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
+import { getBin } from '../../../../services/inventoryService';
 import './inventory.css';
 
 export default class Inventory extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            item: []
+        }
+    }
+
+    componentDidMount() {
+        var id = this.props.match.params.id
+        getBin(id).then(res => {
+            this.setState({
+                item: res[0]
+            })
+            console.log(this.state.item)
+        })
+    }
+
     render() {
+
+        let item = this.state.item
+
     return(
         <div>
             <nav className='navContainer'>
@@ -13,10 +35,25 @@ export default class Inventory extends Component {
                     <h1>Shelf A</h1>
                 </div>
                 <div className='inventoryBinNav'>
-                    <h1>Bin {this.props.match.params.id}</h1>
+                    <h1>Bin { this.props.match.params.id }</h1>
                 </div>
             </nav>
-       
+            <section className='itemContainer'>
+                <div className='itemImage'>
+                <img src={ item.image }/>
+                </div>
+                <div className='itemInformationContainer'>
+                    <h3>Name</h3>
+                    <input placeholder={ item.item }/>
+                    <h3>Price</h3>
+                    <input placeholder={ item.price }/>
+                    <div className='buttonContainer'>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </div>
+                </div>
+
+            </section>
         </div>
         )
     }

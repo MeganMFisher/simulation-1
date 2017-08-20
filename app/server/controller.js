@@ -1,6 +1,6 @@
 var shelves = [{"bin": 1, "shelf": 'A'}, {"bin": 2, "shelf": 'A'}, {"bin": 3, "shelf": 'A'}, null, null]
 
-var bin = [{'bin': 1, 'shelf': 'A', 'item': 'sneakers', 'price': '23.34'}]
+var bin = [{'bin': 1, 'shelf': 'A', 'item': 'Sneakers', 'price': '$23.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg'}]
 
 module.exports = {
     getShelves: (req, res) => {
