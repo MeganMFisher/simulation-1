@@ -17,7 +17,13 @@ module.exports = {
     },
 
     editBin: (req, res) => {
-        res.send('editing')
+        bin.map(e => {
+           if(e.bin == req.params.id) {
+               e.item = req.body.item
+               e.price = req.body.price
+           }
+        })
+        res.send('edited')
     },
 
     deleteBin: (req, res) => {

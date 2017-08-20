@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getBin } from '../../../../services/inventoryService';
+import { getBin, editBin } from '../../../../services/inventoryService';
 import './inventory.css';
 
 export default class Inventory extends Component {
@@ -15,6 +15,8 @@ export default class Inventory extends Component {
         
         this.turnOnEdit = this.turnOnEdit.bind(this)
         this.saveUpdatedItem = this.saveUpdatedItem.bind(this)
+        this.saveEditedItem = this.saveEditedItem.bind(this)
+        this.saveEditedPrice = this.saveEditedPrice.bind(this)
     }
 
     componentDidMount() {
@@ -32,9 +34,28 @@ export default class Inventory extends Component {
         }) 
     }
 
-    saveUpdatedItem() {
+    saveEditedItem(e) {
         this.setState({ 
-            toEdit: false
+            editedItem: e.target.value 
+        }) 
+    }
+
+    saveEditedPrice(e) {
+        this.setState({ 
+            editedPrice: e.target.value 
+        }) 
+    }
+
+    saveUpdatedItem() {
+        var id = this.props.match.params.id
+        var edited = {
+            item: this.state.editedItem,
+            price: this.state.editedPrice
+        }
+        editBin(id, edited).then(res => {
+            this.setState({ 
+                toEdit: false
+            })
         })
     }
 
@@ -61,9 +82,9 @@ export default class Inventory extends Component {
                 </div>
                 <div className='itemInformationContainer'>
                     <h3>Name</h3>
-                    <input disabled={!this.state.toEdit} placeholder={ item.item }/>
+                    <input disabled={!this.state.toEdit} placeholder={ item.item } value={ this.state.editedItem } onChange={ this.saveEditedItem }/>
                     <h3>Price</h3>
-                    <input disabled={!this.state.toEdit}  placeholder={ item.price }/>
+                    <input disabled={!this.state.toEdit}  placeholder={ item.price } value={ this.state.editedPrice } onChange={ this.saveEditedPrice }/>
                     <div className='buttonContainer'>
                         { !this.state.toEdit ?<button onClick={ this.turnOnEdit }>Edit</button>
                         : <button id='saveButton' onClick={ this.saveUpdatedItem }>Save</button> }
