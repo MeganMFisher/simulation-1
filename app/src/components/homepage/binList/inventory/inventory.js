@@ -7,8 +7,14 @@ export default class Inventory extends Component {
         super();
 
         this.state = {
-            item: []
+            item: [],
+            editedItem: '',
+            editedPrice: '',
+            toEdit: false
         }
+        
+        this.turnOnEdit = this.turnOnEdit.bind(this)
+        this.saveUpdatedItem = this.saveUpdatedItem.bind(this)
     }
 
     componentDidMount() {
@@ -17,7 +23,18 @@ export default class Inventory extends Component {
             this.setState({
                 item: res[0]
             })
-            console.log(this.state.item)
+        })
+    }
+
+    turnOnEdit() {
+        this.setState({ 
+            toEdit: true 
+        }) 
+    }
+
+    saveUpdatedItem() {
+        this.setState({ 
+            toEdit: false
         })
     }
 
@@ -44,11 +61,12 @@ export default class Inventory extends Component {
                 </div>
                 <div className='itemInformationContainer'>
                     <h3>Name</h3>
-                    <input placeholder={ item.item }/>
+                    <input disabled={!this.state.toEdit} placeholder={ item.item }/>
                     <h3>Price</h3>
-                    <input placeholder={ item.price }/>
+                    <input disabled={!this.state.toEdit}  placeholder={ item.price }/>
                     <div className='buttonContainer'>
-                        <button>Edit</button>
+                        { !this.state.toEdit ?<button onClick={ this.turnOnEdit }>Edit</button>
+                        : <button id='saveButton' onClick={ this.saveUpdatedItem }>Save</button> }
                         <button>Delete</button>
                     </div>
                 </div>

@@ -81,6 +81,11 @@
     color: black;
 }
 
+.itemInformationContainer input:focus {
+    border: 3px solid #ab2a19;
+    outline: 0;
+}
+
 .buttonContainer {
     display: flex;
     justify-content: space-between;
@@ -99,4 +104,9 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+#saveButton {
+    background: #40f99b;
+    border-radius: 50px;
 }
