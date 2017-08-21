@@ -1,10 +1,11 @@
 var shelves = [{"bin": 1, "shelf": 'A'}, {"bin": 2, "shelf": 'A'}, {"bin": 3, "shelf": 'A'}, {"bin": null, "shelf": 'A'}, {"bin": null, "shelf": 'A'}]
 
-var bin = [{'bin': 1, 'shelf': 'A', 'item': 'Sneakers', 'price': '$23.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg', 'id': 'A1'},{'bin': 1, 'shelf': 'A', 'item': 'Nikes', 'price': '$83.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg', 'id': 'A2'}]
+var bin = [{'bin': 1, 'shelf': 'A', 'item': 'Sneakers', 'price': '$23.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg', 'id': 'A1'},{'bin': 1, 'shelf': 'A', 'item': 'Nikes', 'price': '$83.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg', 'id': 'A2'}, {'id': 'A4'}]
+
+// const db = req.app.get
 
 module.exports = {
     getShelves: (req, res) => {
-        // console.log(req.params.id)
         // req.app.get('db').get_shelves().then((response) => {
         //     res.send(response)
         // })
@@ -23,8 +24,6 @@ module.exports = {
         singleBin = []
         bin.map(e => {
            e.id == req.params.id
-           console.log(e.id)
-           console.log(req.params.id)
            singleBin.push(e)
         })
         res.send(singleBin)
@@ -51,6 +50,13 @@ module.exports = {
     },
 
     createBin: (req, res) => {
+        console.log(req.body)
+        bin.map(e => {
+            if(e.id == req.params.id) {
+                e.item = req.body.item
+            }
+            console.log(e)
+        })
         res.send('creating')
     },
 }

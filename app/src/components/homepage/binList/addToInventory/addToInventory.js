@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createBin } from '../../../../services/inventoryService';
 import './addToInventory.css';
 
 export default class addToInventory extends Component {
@@ -17,30 +18,35 @@ export default class addToInventory extends Component {
     }
 
     addNewItem(e) {
-        setState({
+        this.setState({
             item: e.target.value
         })
     }
 
     addNewPrice(e) {
-        setState({
+        this.setState({
             price: e.target.value
         })
     }
 
     addNewImage(e) {
-        setState({
+        this.setState({
             image: e.target.value
         })
     }
 
     addToInventory() {
+        var id = this.props.match.params.id
         var newItem = {
             item: this.state.item,
             price: this.state.price,
             image: this.state.image,
             id: this.props.match.params.id
         }
+        console.log(newItem)
+        createBin(id, newItem).then(res => {
+            console.log('Item Created')
+        })
     }
 
     
