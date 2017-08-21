@@ -85,7 +85,7 @@ export default class Inventory extends Component {
                     <h1>Shelf A</h1>
                 </div>
                 <div className='inventoryBinNav'>
-                    <h1>Bin { this.props.match.params.id }</h1>
+                    <h1>Bin { this.props.match.params.id[1] }</h1>
                 </div>
             </nav>
             <section className='itemContainer'>

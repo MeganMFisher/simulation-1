@@ -5,6 +5,7 @@ export function getShelves(id) {
 }
 
 export function getBin(id) {
+    console.log(id)
     return axios.get('/api/bin/' + id).then(res => res.data)
 }
 
