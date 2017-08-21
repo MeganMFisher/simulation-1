@@ -10,6 +10,37 @@ export default class addToInventory extends Component {
             price: '',
             image: ''
         }
+        this.addToInventory = this.addToInventory.bind(this)
+        this.addNewImage = this.addNewImage.bind(this)
+        this.addNewItem = this.addNewItem.bind(this)
+        this.addNewPrice = this.addNewPrice.bind(this)
+    }
+
+    addNewItem(e) {
+        setState({
+            item: e.target.value
+        })
+    }
+
+    addNewPrice(e) {
+        setState({
+            price: e.target.value
+        })
+    }
+
+    addNewImage(e) {
+        setState({
+            image: e.target.value
+        })
+    }
+
+    addToInventory() {
+        var newItem = {
+            item: this.state.item,
+            price: this.state.price,
+            image: this.state.image,
+            id: this.props.match.params.id
+        }
     }
 
     
@@ -30,13 +61,13 @@ export default class addToInventory extends Component {
             <section className='addInventoryBox'>
                 <div className='addInventoryContainer'>
                     <h3>Name</h3>
-                    <input />
+                    <input onChange={ this.addNewItem } />
                     <h3>Price</h3>
-                    <input />
+                    <input onChange={ this.addNewPrice }/>
                     <h3>Image</h3>
-                    <input />
+                    <input onChange={ this.addNewImage }/>
                     <div className='inventoryButton'>
-                        <button>+ Add Inventory</button>
+                        <button onClick={ this.addToInventory }>+ Add Inventory</button>
                     </div>
                 </div>
             </section>
