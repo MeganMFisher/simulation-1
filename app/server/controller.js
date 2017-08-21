@@ -1,6 +1,6 @@
 var shelves = [{"bin": 1, "shelf": 'A'}, {"bin": 2, "shelf": 'A'}, {"bin": 3, "shelf": 'A'}, null, null]
 
-var bin = [{'bin': 1, 'shelf': 'A', 'item': 'Sneakers', 'price': '$23.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg'}]
+var bin = [{'bin': 1, 'shelf': 'A', 'item': 'Sneakers', 'price': '$23.34', 'image': 'http://static.highsnobiety.com/wp-content/uploads/2017/03/10120857/best-adidas-sneakers-2017-feature-july-320x192.jpg', 'id': 'A1'}]
 
 module.exports = {
     getShelves: (req, res) => {
@@ -18,7 +18,7 @@ module.exports = {
 
     editBin: (req, res) => {
         bin.map(e => {
-           if(e.bin == req.params.id) {
+           if(e.id == req.params.id) {
                e.item = req.body.item
                e.price = req.body.price
            }
@@ -28,7 +28,7 @@ module.exports = {
 
     deleteBin: (req, res) => {
         bin.map(e => {
-            if(e.bin == req.params.id) {
+            if(e.id == req.params.id) {
                 bin.splice(e, 1, null)
             }
         })

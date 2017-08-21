@@ -18,7 +18,6 @@ export default class BinList extends Component {
             this.setState({
                 bins: res
             })
-            console.log(this.state.bins)
         })
     }
 
@@ -27,11 +26,11 @@ export default class BinList extends Component {
         
             <div key={i} className='shelfListContainer'>
             { !bin ? 
-                <Link to={ `/addToInventory/${ i + 1 }`} className='addToInventoryButton'>
+                <Link to={ `/addToInventory/${ this.props.match.params.id + (i + 1)}`} className='addToInventoryButton'>
                     <h1>+ Add Inventory</h1>
                 </Link>
                 :
-                <Link to={ `/inventory/${ bin.bin }`} className='binList'>
+                <Link to={ `/inventory/${ this.props.match.params.id + bin.bin }`} className='binList'>
                     <h1>Bin { bin.bin } </h1>
                 </Link>}
             </div>
