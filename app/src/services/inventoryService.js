@@ -15,3 +15,7 @@ export function editBin(id, obj) {
 export function deleteBin(id) {
     return axios.delete('/api/bin/' + id).then(res => res.data)
 }
+
+export function createBin(id, obj) {
+    return axios.post('/api/bin/' + id, obj)
+}
