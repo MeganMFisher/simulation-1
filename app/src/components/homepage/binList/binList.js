@@ -25,7 +25,7 @@ export default class BinList extends Component {
         const bins = this.state.bins.map((bin, i) => (
         
             <div key={i} className='shelfListContainer'>
-            { !bin.bin ? 
+            { !bin.item ? 
                 <Link to={ `/addToInventory/${ this.props.match.params.id + (i + 1)}`} className='addToInventoryButton'>
                     <h1>+ Add Inventory</h1>
                 </Link>
