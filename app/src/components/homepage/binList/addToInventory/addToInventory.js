@@ -43,7 +43,6 @@ export default class addToInventory extends Component {
             image: this.state.image,
             id: this.props.match.params.id
         }
-        console.log(newItem)
         createBin(id, newItem).then(res => {
             console.log('Item Created')
         })

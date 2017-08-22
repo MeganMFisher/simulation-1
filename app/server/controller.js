@@ -4,17 +4,17 @@ var bin = [{'shelf': 'A', 'bin': 1, 'id': 'A1', 'item': 'Sneakers', 'price': '$2
 
 module.exports = {
     getShelves: (req, res) => {
-        // req.app.get('db').get_shelves().then((response) => {
-        //     res.send(response)
-        // })
-
-        var shelfArray = []
-        bin.map(e => {
-            if(e.shelf == req.params.id) {
-                shelfArray.push(e)
-            }
+        req.app.get('db').get_shelves(req.params.id).then((response) => {
+            res.send(response)
         })
-        res.send(shelfArray)
+
+        // var shelfArray = []
+        // bin.map(e => {
+        //     if(e.shelf == req.params.id) {
+        //         shelfArray.push(e)
+        //     }
+        // })
+        // res.send(shelfArray)
 
     },
 
