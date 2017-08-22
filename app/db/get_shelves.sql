@@ -1,3 +1,4 @@
 SELECT * 
 FROM bins
-WHERE shelf = $1;
+WHERE shelf = $1
+ORDER BY bin ASC;

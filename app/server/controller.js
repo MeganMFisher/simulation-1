@@ -22,6 +22,7 @@ module.exports = {
         req.app.get('db').get_bin(req.params.id).then((response) => {
             res.send(response)
         })
+
         // singleBin = []
         // bin.map(e => {
         //    if(e.id == req.params.id) {
@@ -32,36 +33,61 @@ module.exports = {
     },
 
     editBin: (req, res) => {
-        bin.map(e => {
-           if(e.id == req.params.id) {
-               e.item = req.body.item
-               e.price = req.body.price
-           }
+        let params = [
+            req.params.id,
+            req.body.item,
+            req.body.price
+        ]
+
+        req.app.get('db').edit_bin(params).then((response) => {
+            res.send('Edited')
         })
-        res.send('edited')
+
+        // bin.map(e => {
+        //    if(e.id == req.params.id) {
+        //        e.item = req.body.item
+        //        e.price = req.body.price
+        //    }
+        // })
+        // res.send('edited')
     },
 
     deleteBin: (req, res) => {
-        bin.map(e => {
-            if(e.id == req.params.id) {
-                console.log(bin.item)
-                console.log(e.item)
-                e.item = null
-                e.price = null
-                e.image = null
-            }
+        req.app.get('db').delete_bin(req.params.id).then((response) => {
+            res.send('Deleted')
         })
-        res.send('deleting')
+
+        // bin.map(e => {
+        //     if(e.id == req.params.id) {
+        //         console.log(bin.item)
+        //         console.log(e.item)
+        //         e.item = null
+        //         e.price = null
+        //         e.image = null
+        //     }
+        // })
+        // res.send('deleting')
     },
 
     createBin: (req, res) => {
-        bin.map(e => {
-            if(e.id == req.params.id) {
-                e.item = req.body.item
-                e.price = req.body.price
-                e.image = req.body.image
-            }
+        let params = [
+            req.body.item,
+            req.body.price,
+            req.body.image,
+            req.params.id
+        ]
+        console.log(params)
+        req.app.get('db').create_bin(params).then((response) => {
+            res.send('Created')
         })
-        res.send('creating')
+
+        // bin.map(e => {
+        //     if(e.id == req.params.id) {
+        //         e.item = req.body.item
+        //         e.price = req.body.price
+        //         e.image = req.body.image
+        //     }
+        // })
+        // res.send('creating')
     },
 }
