@@ -19,13 +19,16 @@ module.exports = {
     },
 
     getBin: (req, res) => {
-        singleBin = []
-        bin.map(e => {
-           if(e.id == req.params.id) {
-           singleBin.push(e)
-           }
+        req.app.get('db').get_bin(req.params.id).then((response) => {
+            res.send(response)
         })
-        res.send(singleBin)
+        // singleBin = []
+        // bin.map(e => {
+        //    if(e.id == req.params.id) {
+        //    singleBin.push(e)
+        //    }
+        // })
+        // res.send(singleBin)
     },
 
     editBin: (req, res) => {
