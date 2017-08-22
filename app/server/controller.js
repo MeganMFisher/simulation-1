@@ -44,7 +44,11 @@ module.exports = {
     deleteBin: (req, res) => {
         bin.map(e => {
             if(e.id == req.params.id) {
-                bin.splice(e, 1, null)
+                console.log(bin.item)
+                console.log(e.item)
+                e.item = null
+                e.price = null
+                e.image = null
             }
         })
         console.log(bin)
