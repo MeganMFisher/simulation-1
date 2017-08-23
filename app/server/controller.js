@@ -8,28 +8,12 @@ module.exports = {
             res.send(response)
         })
 
-        // var shelfArray = []
-        // bin.map(e => {
-        //     if(e.shelf == req.params.id) {
-        //         shelfArray.push(e)
-        //     }
-        // })
-        // res.send(shelfArray)
-
     },
 
     getBin: (req, res) => {
         req.app.get('db').get_bin(req.params.id).then((response) => {
             res.send(response)
         })
-
-        // singleBin = []
-        // bin.map(e => {
-        //    if(e.id == req.params.id) {
-        //    singleBin.push(e)
-        //    }
-        // })
-        // res.send(singleBin)
     },
 
     editBin: (req, res) => {
@@ -40,33 +24,15 @@ module.exports = {
         ]
 
         req.app.get('db').edit_bin(params).then((response) => {
-            res.send('Edited')
+            res.send(response)
         })
 
-        // bin.map(e => {
-        //    if(e.id == req.params.id) {
-        //        e.item = req.body.item
-        //        e.price = req.body.price
-        //    }
-        // })
-        // res.send('edited')
     },
 
     deleteBin: (req, res) => {
         req.app.get('db').delete_bin(req.params.id).then((response) => {
-            res.send('Deleted')
+            res.send(response)
         })
-
-        // bin.map(e => {
-        //     if(e.id == req.params.id) {
-        //         console.log(bin.item)
-        //         console.log(e.item)
-        //         e.item = null
-        //         e.price = null
-        //         e.image = null
-        //     }
-        // })
-        // res.send('deleting')
     },
 
     createBin: (req, res) => {
@@ -78,16 +44,8 @@ module.exports = {
         ]
         console.log(params)
         req.app.get('db').create_bin(params).then((response) => {
-            res.send('Created')
+            res.send(response)
         })
 
-        // bin.map(e => {
-        //     if(e.id == req.params.id) {
-        //         e.item = req.body.item
-        //         e.price = req.body.price
-        //         e.image = req.body.image
-        //     }
-        // })
-        // res.send('creating')
     },
 }

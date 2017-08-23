@@ -5,12 +5,11 @@ export function getShelves(id) {
 }
 
 export function getBin(id) {
-    console.log(id)
     return axios.get('/api/bin/' + id).then(res => res.data)
 }
 
 export function editBin(id, obj) {
-    return axios.put('/api/bin/' + id, obj).then(res => res.data)
+    return axios.put('/api/bin/' + id, obj).then(res => console.log(res.data))
 }
 
 export function deleteBin(id) {
